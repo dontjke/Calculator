@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">homework4</string>
+    <string name="loginName">login</string>
+    <string name="password">password</string>
 </resources>
