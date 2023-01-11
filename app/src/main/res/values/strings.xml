@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">homework4</string>
+    <string name="app_name">Login</string>
     <string name="loginName">login</string>
     <string name="password">password</string>
     <string name="my_cool_style">My cool style</string>
