@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">homework2</string>
+    <string name="app_name">homework4</string>
     <string name="_1">1</string>
     <string name="_2">2</string>
     <string name="_3">3</string>
@@ -20,4 +20,7 @@
     <string name="_plus_minus">+/-</string>
     <string name="_percent">%</string>
     <string name="_result" />
+    <string name="theme_one">theme1</string>
+    <string name="theme_two">theme2</string>
+    <string name="theme_three">theme3</string>
 </resources>

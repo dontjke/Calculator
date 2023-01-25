@@ -179,6 +179,30 @@
         android:text="@string/_equals"
         android:textSize="@dimen/button_text" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_theme_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:text="@string/theme_one"
+        android:textSize="@dimen/button_theme_text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_theme_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:text="@string/theme_two"
+        android:textSize="@dimen/button_theme_text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_theme_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:text="@string/theme_three"
+        android:textSize="@dimen/button_theme_text" />
+
 
 </GridLayout>
 

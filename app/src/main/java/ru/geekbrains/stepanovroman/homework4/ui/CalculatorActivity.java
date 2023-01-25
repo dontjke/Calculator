@@ -3,6 +3,7 @@ package ru.geekbrains.stepanovroman.homework4.ui;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,25 +15,40 @@ import java.util.Map;
 import ru.geekbrains.stepanovroman.homework4.R;
 import ru.geekbrains.stepanovroman.homework4.model.CalculatorImpl;
 import ru.geekbrains.stepanovroman.homework4.model.Operator;
+import ru.geekbrains.stepanovroman.homework4.model.Theme;
+import ru.geekbrains.stepanovroman.homework4.model.ThemeRepository;
+import ru.geekbrains.stepanovroman.homework4.model.ThemeRepositoryImpl;
 
 public class CalculatorActivity extends AppCompatActivity implements CalculatorView {
 
     private static final String KEY_ARGUMENT = "argument";
 
-
     private TextView resultTxt;
 
     private CalculatorPresenter presenter;
 
+    private ThemeRepository themeRepository;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        themeRepository = ThemeRepositoryImpl.getInstance(this);
+
+        setTheme(themeRepository.getSavedTheme().getThemeRes());
+
         setContentView(R.layout.activity_calculator);
+
         resultTxt = findViewById(R.id.result);
+
         presenter = new CalculatorPresenter(this, new CalculatorImpl());
+
         if (savedInstanceState != null) {
             presenter.setArgOne(savedInstanceState.getDouble(KEY_ARGUMENT));
         }
+
+
 
         Map<Integer, Integer> digits = new HashMap<>();
         digits.put(R.id.button_1, 1);
@@ -92,6 +108,47 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
                 presenter.onPointPressed();
             }
         });
+
+
+        Button themeOne = findViewById(R.id.button_theme_one);
+        Button themeTwo = findViewById(R.id.button_theme_two);
+        Button themeThree = findViewById(R.id.button_theme_three);
+
+        if (themeOne != null){
+            themeOne.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    themeRepository.saveTheme(Theme.ONE);
+
+                    recreate();
+                }
+            });
+        }
+
+        if (themeTwo != null){
+            themeTwo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    themeRepository.saveTheme(Theme.TWO);
+
+                    recreate();
+                }
+            });
+        }
+
+        if (themeThree != null){
+            themeThree.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    themeRepository.saveTheme(Theme.THREE);
+
+                    recreate();
+                }
+            });
+        }
+
+
+
     }
 
     @Override
