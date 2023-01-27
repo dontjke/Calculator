@@ -49,6 +49,10 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
 
         resultTxt = findViewById(R.id.result);
 
+        if (getIntent().hasExtra("message")){
+            resultTxt.setText(getIntent().getStringExtra("message"));
+        }
+
         presenter = new CalculatorPresenter(this, new CalculatorImpl());
 
         if (savedInstanceState != null) {
