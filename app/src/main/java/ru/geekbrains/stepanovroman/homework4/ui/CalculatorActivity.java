@@ -115,6 +115,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CalculatorActivity.this, SelectThemeActivity.class);
+                intent.putExtra(SelectThemeActivity.EXTRA_THEME,themeRepository.getSavedTheme());
                 startActivity(intent);
             }
         });
