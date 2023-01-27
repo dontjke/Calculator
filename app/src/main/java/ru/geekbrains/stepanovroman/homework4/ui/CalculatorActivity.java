@@ -1,12 +1,18 @@
 package ru.geekbrains.stepanovroman.homework4.ui;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,7 +54,6 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         if (savedInstanceState != null) {
             presenter.setArgOne(savedInstanceState.getDouble(KEY_ARGUMENT));
         }
-
 
 
         Map<Integer, Integer> digits = new HashMap<>();
@@ -110,16 +115,27 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
             }
         });
 
+        //запуск активити с результатом
+        ActivityResultLauncher<Intent> themeLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == Activity.RESULT_OK){
+                Intent intent = result.getData();
+
+                Theme selectedTheme = (Theme) intent.getSerializableExtra(SelectThemeActivity.EXTRA_THEME);
+
+                themeRepository.saveTheme(selectedTheme);
+
+                recreate();
+            }
+        });
 
         findViewById(R.id.button_theme).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CalculatorActivity.this, SelectThemeActivity.class);
-                intent.putExtra(SelectThemeActivity.EXTRA_THEME,themeRepository.getSavedTheme());
-                startActivity(intent);
+                intent.putExtra(SelectThemeActivity.EXTRA_THEME, themeRepository.getSavedTheme());
+                themeLauncher.launch(intent);
             }
         });
-
 
 
     }

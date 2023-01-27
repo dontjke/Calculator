@@ -3,6 +3,7 @@ package ru.geekbrains.stepanovroman.homework4.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -37,9 +38,9 @@ public class SelectThemeActivity extends AppCompatActivity {
         //Получаем выбранную тему
         Theme selectedThem = (Theme) intent.getSerializableExtra(EXTRA_THEME);
 
-        for (Theme theme: themes){
+        for (Theme theme : themes) {
 
-            View itemView = getLayoutInflater().inflate(R.layout.item_theme,container,false);
+            View itemView = getLayoutInflater().inflate(R.layout.item_theme, container, false);
 
             TextView title = itemView.findViewById(R.id.title);
 
@@ -50,13 +51,17 @@ public class SelectThemeActivity extends AppCompatActivity {
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(SelectThemeActivity.this,theme.getTitle(),Toast.LENGTH_SHORT).show();
+
+                    Intent data = new Intent();
+                    data.putExtra(EXTRA_THEME, theme);
+                    setResult(Activity.RESULT_OK,data);   //передаем данные о выбранной теме и закрываем активити
+                    finish();
                 }
             });
 
             ImageView checked = itemView.findViewById(R.id.checked);
 
-            if(theme.equals(selectedThem)){
+            if (theme.equals(selectedThem)) {
                 checked.setVisibility(View.VISIBLE);
             } else {
                 checked.setVisibility(View.GONE);
