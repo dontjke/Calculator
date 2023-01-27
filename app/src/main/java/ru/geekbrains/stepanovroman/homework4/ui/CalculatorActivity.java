@@ -1,6 +1,7 @@
 package ru.geekbrains.stepanovroman.homework4.ui;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -110,42 +111,13 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         });
 
 
-        Button themeOne = findViewById(R.id.button_theme_one);
-        Button themeTwo = findViewById(R.id.button_theme_two);
-        Button themeThree = findViewById(R.id.button_theme_three);
-
-        if (themeOne != null){
-            themeOne.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    themeRepository.saveTheme(Theme.ONE);
-
-                    recreate();
-                }
-            });
-        }
-
-        if (themeTwo != null){
-            themeTwo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    themeRepository.saveTheme(Theme.TWO);
-
-                    recreate();
-                }
-            });
-        }
-
-        if (themeThree != null){
-            themeThree.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    themeRepository.saveTheme(Theme.THREE);
-
-                    recreate();
-                }
-            });
-        }
+        findViewById(R.id.button_theme).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CalculatorActivity.this, SelectThemeActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
