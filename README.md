@@ -7,6 +7,6 @@ Application Components, Intent, Call Activiti, Browser Call, Optional. Creating 
 ## Preview
 <table>
    <tr>
-    <td> <img src="https://github.com/dontjke/Calculator/assets/31520220/fd46d94c-fdb3-4e80-9b7c-3240cb1333d1"  alt="1" width = 360px  ></td>
+    <td> <img src="https://github.com/dontjke/Calculator/assets/31520220/b5831bf5-ee58-4841-a1d9-f0ace734d810"  alt="1" width = 360px  ></td>
   </tr>
 </table>
