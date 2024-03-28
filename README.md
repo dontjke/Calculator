@@ -1,9 +1,10 @@
 # Calculator
+Java, MVP
 Application developed as part of the training course
 
 Layouts, Elements
 user interface, View class, Adding Elements to a Layout, Element properties, Manifesto, Activity life cycle, Interacting with Custom Elements, Adaptation to changing screen orientation, Parcelable, Resources, App styles and themes, Material Design Buttons, TextInputLayout, SharedPreferences
-Application Components, Intent, Call Activiti, Browser Call, Optional. Creating your own Intent filter
+Application Components, Intent, Call Activity, Browser Call, Optional. Creating your own Intent filter
 ## Preview
 <table>
    <tr>
